@@ -1,0 +1,13 @@
+defaultTasks 'hello'
+
+logger.info "****************************************************************"
+logger.info "${project.gradle.timestamp()}"
+logger.info "build.gradle -> delegate to -> project object and gradle object"
+logger.info "settings.gradle -> delegate to -> setting object and gradle object"
+logger.info "init.gradle -> delegate to -> gradle object"
+logger.info "****************************************************************"
+
+task('hello').doLast{
+	println "Hello World"	
+}
+
