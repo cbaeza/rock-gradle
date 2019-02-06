@@ -1,13 +1,38 @@
-defaultTasks 'hello'
+defaultTasks 'doSomething'
 
 logger.info "****************************************************************"
-logger.info "${project.gradle.timestamp()}"
+//logger.info "${project.gradle.timestamp()}"
 logger.info "build.gradle -> delegate to -> project object and gradle object"
 logger.info "settings.gradle -> delegate to -> setting object and gradle object"
 logger.info "init.gradle -> delegate to -> gradle object"
+logger.info "property : ${property}"
 logger.info "****************************************************************"
 
-task('hello').doLast{
-	println "Hello World"	
+
+logger.info """
+gradleVersion: $gradle.gradleVersion
+gradleUserHomeDir: $gradle.gradleUserHomeDir
+gradleHomeDir: $gradle.gradleHomeDir
+"""
+
+task('hello').doLast {
+    println "Hello World"
+    if (project.hasProperty("xxx")) {
+        logger.info "YES"
+    } else {
+        logger.info "NO"
+    }
+    logger.info "*************"
+    if (project.gradle.hasProperty('timestamp')) {
+        logger.info "Timestamp found"
+    } else {
+        logger.info "Timestamp NOT found"
+    }
 }
+
+task('doSomething').doFirst {
+    println "doSomething doFirst"
+}.doLast({
+    println "doSomething doLast"
+})
 

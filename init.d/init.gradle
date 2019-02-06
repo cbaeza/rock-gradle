@@ -1,3 +1,4 @@
+println "INIT.GRADLE -> This is executed during initialization phase"
 import java.text.*
 
 gradle.ext.timestamp = {

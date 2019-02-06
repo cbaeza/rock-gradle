@@ -1,1 +1,1 @@
-println "setting.gradle -> This is executed during initialization phase"
+println "SETTINGS.GRADLE -> This is executed during initialization phase"
